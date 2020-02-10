@@ -3,7 +3,7 @@
 #include<stdio.h>
 #define sz 10
 using namespace std;
-int Array[sz], N, Sum = 0;
+int Array[sz], N, Sum;
 
 void readCase()
 {
@@ -11,9 +11,10 @@ void readCase()
 	for (int i = 0; i < N; i++) {
 		cin >> Array[i];
 	}
+	Sum = Array[0];
 }
 void solve(int start, int range) {
-	int test = Array[0];
+	int test = 0;
 	for (int j = start; j < range; j++) {
 		test += Array[j];
 		if (test > Sum) {
