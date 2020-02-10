@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<stdio.h>
+#define sz 10
+using namespace std;
+int Array[sz], N, Sum = 0;
+
+void readCase()
+{
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> Array[i];
+	}
+}
+void solve(int start, int range) {
+	int test = Array[0];
+	for (int j = start; j < range; j++) {
+		test += Array[j];
+		if (test > Sum) {
+			Sum = test;
+		}
+	}
+}
+void solveCase()
+{
+	for (int i = 0; i < N; i++) {
+		solve(i, N);
+	}
+}
+void printCase()
+{
+	printf(" And is : %d", Sum);
+}
+int main()
+{
+	freopen("input.txt", "r", stdin);
+	readCase();
+	solveCase();
+	printCase();
+
+	return 0;
+}
